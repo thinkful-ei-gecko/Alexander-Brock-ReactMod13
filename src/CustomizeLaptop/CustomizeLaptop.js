@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
+import Features from '../Features/Features';
 
 class CustomizeLaptop extends Component {
+  
   render() {
+    console.log(this.props.features)
     return (
       <form className="main__form">
       <h2>Customize your laptop</h2>
       {/*features - list of each feature with radio options to select different one*/}
-      <div key={/*itemHash*/} className="feature__item">
-            <input
-              type="radio"
-              id={/*itemHash*/}
-              className="feature__option"
-              name={/*slugify(feature)*/}
-              checked={/*item.name === this.state.selected[feature].name}
-    onChange={e => this.updateFeature(feature, item)*/}
-            />
-            <label htmlFor={/*itemHash*/} className="feature__label">
-              {/*item.name*/} ({/*USCurrencyFormat.format(item.cost)*/})
-            </label>
-          </div>
-    </form>
+        <Features features={this.props.features} />
+      </form>
     );
   }
 }
