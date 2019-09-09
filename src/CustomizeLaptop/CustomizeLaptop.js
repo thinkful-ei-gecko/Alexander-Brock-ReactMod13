@@ -4,7 +4,7 @@ import Features from '../Features/Features';
 class CustomizeLaptop extends Component {
   
   render() {
-    console.log(this.props.features)
+    //console.log(this.props.monday)
     return (
       <form className="main__form">
       <h2>Customize your laptop</h2>
