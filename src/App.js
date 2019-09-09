@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CustomizeLaptop from './CustomizeLaptop/CustomizeLaptop';
+import YourCart from './YourCart/YourCart';
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
@@ -42,6 +44,9 @@ class App extends Component {
       selected
     });
   };
+
+  // customizeLaptopRender()
+  // yourCartRender()
 
   render() {
     const features = Object.keys(this.props.features).map((feature, idx) => {
