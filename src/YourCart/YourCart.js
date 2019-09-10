@@ -3,52 +3,33 @@ import Summary from '../Summary/Summary';
 import Total from '../Total/Total';
 
 
-
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-});
-
-/* const summary = Object.keys(this.state.selected).map((feature, idx) => {
-  const featureHash = feature + '-' + idx;
-  const selectedOption = this.state.selected[feature];
-
-  return (
-    <div className="summary__option" key={featureHash}>
-      <div className="summary__option__label">{feature} </div>
-      <div className="summary__option__value">{selectedOption.name}</div>
-      <div className="summary__option__cost">
-        {USCurrencyFormat.format(selectedOption.cost)}
-      </div>
-    </div>
-  );
-}); */
 class YourCart extends Component {
+  
   render() {
-
-    const summary = Object.keys(this.state.selected).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      const selectedOption = this.state.selected[feature];
+    console.log(this.props.stateSelected.selected);
+      const summary = Object.keys(this.props.stateSelected.selected).map((feature, idx) => {
+        const featureHash = feature + '-' + idx;
+        const selectedOption = this.props.stateSelected.selected[feature];
+        
+        return(
+          <Summary
+          USCurrencyFormat={this.props.USCurrencyFormat}
+          featureHash={featureHash}
+          selectedOption={selectedOption}
+          />
+        );
+      });
 
       return (
         <section className="main__summary">
         <h2>Your cart</h2>
-        {summary}
-        <div className="summary__total">
-          <div className="summary__total__label">Total</div>
-          <div className="summary__total__value">
-            <Total />
-          </div>
-        </div>
+          {summary}
+          <Total
+            stateSelected={this.props.stateSelected}
+            USCurrencyFormat={this.props.USCurrencyFormat}
+            />
       </section>
-      );
-    })
-  
-    return (
-      <div>
-        {summary}
-      </div>
-    )
+      );  
   }
 }
 
