@@ -6,10 +6,9 @@ import Total from '../Total/Total';
 class YourCart extends Component {
   
   render() {
-    console.log(this.props.stateSelected.selected);
-      const summary = Object.keys(this.props.stateSelected.selected).map((feature, idx) => {
+      const summary = Object.keys(this.props.stateSelected).map((feature, idx) => {
         const featureHash = feature + '-' + idx;
-        const selectedOption = this.props.stateSelected.selected[feature];
+        const selectedOption = this.props.stateSelected[feature];
         
         return(
           <Summary

@@ -2,25 +2,6 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 import Feature from '../Feature/Feature';
 
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-});
-
-  /* <div key={itemHash} className="feature__item">
-<input
-  type="radio"
-  id={itemHash}
-  className="feature__option"
-  name={slugify(feature)}
-  checked={item.name === this.state.selected[feature].name}
-onChange={e => this.updateFeature(feature, item)}
-/>
-<label htmlFor={itemHash} className="feature__label">
-  {item.name} ({USCurrencyFormat.format(item.cost)})
-</label>
-</div> */
-
 class Features extends Component {
 
   render() {
@@ -29,15 +10,18 @@ class Features extends Component {
       const options = this.props.features[feature].map(item => {
         const itemHash = slugify(JSON.stringify(item));
         const itemCost = this.props.USCurrencyFormat.format(item.cost);
+        console.log(this.props.stateSelected[feature].name);
         
         return (
         <Feature
         itemHash={itemHash}
         name={slugify(feature)}
-        checked={item.name === this.props.stateSelected.selected[feature].name}
-        onChange={e => this.props.updateFeature(feature, item)}
+        updateFeature={this.props.updateFeature}
+        checked={item.name === this.props.stateSelected[feature].name}
         itemName={item.name}
         itemCost={itemCost}
+        feature={feature}
+        item={item}
         />
         );
       });

@@ -4,9 +4,9 @@ class Total extends Component {
     render () {
         //Changes number to US currency format.
         const USCurrencyFormat = this.props.USCurrencyFormat;
-        const stateSelected = this.props.stateSelected.selected;
+        const stateSelected = this.props.stateSelected;
         //Returns list of keys, set to each part.
-        const partsArray = Object.keys(this.props.stateSelected.selected);
+        const partsArray = Object.keys(this.props.stateSelected);
 
         const totalPrice = partsArray.reduce(
             (acc, curr) => acc + stateSelected[curr].cost,
