@@ -11,7 +11,7 @@ class YourCart extends Component {
         const selectedOption = this.props.stateSelected[feature];
         
         return(
-          <Summary
+          <Summary 
           USCurrencyFormat={this.props.USCurrencyFormat}
           featureHash={featureHash}
           selectedOption={selectedOption}

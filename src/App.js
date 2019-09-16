@@ -31,6 +31,7 @@ class App extends Component {
   };
 
   updateFeature = (feature, newValue) => {
+    console.log(feature, newValue)
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -50,12 +51,14 @@ class App extends Component {
         </header>
         <main>
           <CustomizeLaptop
+            key='customizeLaptop'
             features={this.props.features}
             stateSelected={this.state.selected}
             USCurrencyFormat={USCurrencyFormat}
             updateFeature={ (feature, newValue)=>this.updateFeature(feature, newValue)}
             />
           <YourCart
+            key='YourcartApp'
             features={this.props.features}
             stateSelected={this.state.selected}
             USCurrencyFormat={USCurrencyFormat}

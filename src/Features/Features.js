@@ -8,12 +8,13 @@ class Features extends Component {
     const features = Object.keys(this.props.features).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
       const options = this.props.features[feature].map(item => {
-        const itemHash = slugify(JSON.stringify(item));
+        const itemHash = slugify(item.name);
         const itemCost = this.props.USCurrencyFormat.format(item.cost);
-        console.log(this.props.stateSelected[feature].name);
-        
+        //console.log(this.props.stateSelected[feature].name);
+        console.log(itemHash)
         return (
         <Feature
+        key={item.name}
         itemHash={itemHash}
         name={slugify(feature)}
         updateFeature={this.props.updateFeature}
